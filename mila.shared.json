@@ -1,0 +1,110 @@
+{
+  "targets": {
+    "start": {
+      "script": "start",
+      "daemon": {
+        "type": "success",
+        "stdio": "all",
+        "matcher": "contains",
+        "value": "Server ready"
+      }
+    },
+    "lint": {
+      "script": "lint",
+      "src": {
+        "internals": [
+          "{src,test}/**/*.{ts,tsx,json,yml}"
+        ],
+        "root": [
+          "tsconfig.eslint.json",
+          "tsconfig.json"
+        ]
+      }
+    },
+    "build": {
+      "script": "tsc",
+      "src": {
+        "internals": [
+          "src/**/*.ts",
+          "tsconfig.json"
+        ],
+        "deps": [
+          "src/**/*.ts",
+          "tsconfig.json"
+        ],
+        "root": [
+          "tsconfig.json"
+        ]
+      },
+      "artifacts": [
+        "lib/**/*.js",
+        "lib/**/*.d.ts",
+        "dist/**/*.js",
+        "dist/**/*.d.ts"
+      ]
+    },
+    "test": {
+      "script": "test",
+      "src": {
+        "internals": [
+          "test/**/*.ts",
+          "src/**/*.ts",
+          "jest.config.unit.json",
+          "jest.config.functional.json"
+        ],
+        "deps": [
+          "src/**/*.ts",
+          "tsconfig.json"
+        ],
+        "root": [
+          "tsconfig.json",
+          "jest-unit-services-preset.json",
+          "jest-functional-preset.json"
+        ]
+      },
+      "artifacts": [
+        "coverage/**/coverage-final.json"
+      ]
+    },
+    "package": {
+      "script": "package",
+      "src": {
+        "internals": [
+          "lib/**/*.js",
+          "serverless.yml"
+        ],
+        "deps": [
+          "lib/**/*.js",
+          "serverless.yml"
+        ],
+        "root": [
+          "package.json",
+          "serverless_config"
+        ]
+      },
+      "artifacts": [
+        ".package/bundle.zip",
+        ".package/layer.zip",
+        ".package/bundle-metadata.json"
+      ]
+    },
+    "deploy": {
+      "script": "deploy",
+      "src": {
+        "internals": [
+          "lib/**/*.js",
+          ".package",
+          "serverless.yml",
+          "package.json"
+        ],
+        "deps": [
+          "lib/**/*.js"
+        ],
+        "root": [
+          "package.json",
+          "config/**/*.yml"
+        ]
+      }
+    }
+  }
+}

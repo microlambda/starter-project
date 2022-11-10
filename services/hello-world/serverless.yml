@@ -1,0 +1,53 @@
+service: my-app-hello-world
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  region: ${env:AWS_REGION}
+  endpointType: REGIONAL
+  stage: ${env:ENV}
+  deploymentBucket:
+    name: ${ssm:/my-app/shared/buckets/deployments}
+  deploymentPrefix: ${env:ENV}/hello-world
+  environment:
+    env: ${env:ENV}
+
+functions:
+  hello-world:
+    handler: src/handlers/http/hello-world.handler
+    events:
+      - http:
+          path: greet
+          method: get
+          cors: ${file:../../default-cors.yml}
+
+plugins:
+  - serverless-offline
+  - serverless-microlambda
+  - serverless-prune-plugin
+
+resources:
+  Resources:
+    ApiGatewayRestApi:
+      Type: AWS::ApiGateway::RestApi
+      Properties:
+        MinimumCompressionSize: 1024
+    GatewayResponseDefault4XX:
+      Type: 'AWS::ApiGateway::GatewayResponse'
+      Properties:
+        ResponseParameters:
+          gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
+          gatewayresponse.header.Access-Control-Allow-Headers: "'*'"
+        ResponseType: UNAUTHORIZED
+        RestApiId:
+          Ref: 'ApiGatewayRestApi'
+        StatusCode: '401'
+
+custom:
+  prune:
+    automatic: true
+    number: 2
+  microlambda:
+    domain:
+      domainName: ${env:API_DOMAIN_${env:ENV}}
+      basePath: hello-world

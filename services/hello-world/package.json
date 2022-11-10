@@ -1,0 +1,20 @@
+{
+  "name": "@my-app/hello-world",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@my-app/logger": "workspace:*",
+    "@my-app/middleware": "workspace:*"
+  },
+  "scripts": {
+    "lint": "npx eslint {src,test}/**/*.{ts,tsx,json,yml}",
+    "start": "npx sls offline start --host localhost --httpPort 3000",
+    "stop": "npx kill-port --port 3000",
+    "test": "npx jest --config jest.config.unit.json --colors",
+    "tsc": "npx tsc",
+    "prune": "npx sls prune -n 3",
+    "create-domain": "npx sls create_domain",
+    "package": "npx sls package",
+    "deploy": "npx sls deploy"
+  }
+}
