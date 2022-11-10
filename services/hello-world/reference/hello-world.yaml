@@ -1,0 +1,16 @@
+openapi: 3.0.0
+info:
+  title: Hello World
+  version: '1.0'
+paths:
+  '/greet':
+    get:
+      responses:
+        '200':
+          description: "If no error, returns the requested 'Company' object"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Company'
+      operationId: hello-world-v1
+      description: Receive a "Hello world" from the API

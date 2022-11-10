@@ -1,0 +1,17 @@
+{
+  "name": "@my-app/logger",
+  "version": "1.0.0",
+  "main": "lib/src/index.js",
+  "typings": "lib/src/index.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "lint": "npx eslint {src,test}/**/*.{ts,tsx,json,yml}",
+    "tsc": "npx tsc",
+    "test": "npx jest --config jest.config.json --colors"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "name": "my-app",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=18.0.0",
+    "yarn": ">= 3.0.0"
+  },
+  "scripts": {
+    "build": "yarn mila build --no-install",
+    "lint": "yarn mila-runner run lint",
+    "test": "yarn mila test --no-install",
+    "start": "yarn mila start",
+    "package": "yarn mila package",
+    "deploy": "yarn mila deploy -e $ENV"
+  },
+  "workspaces": [
+    "packages/*",
+    "services/*"
+  ],
+  "devDependencies": {
+    "@microlambda/cli": "link:/Users/mario/Code/OpenSource/microlambda/cli",
+    "@microlambda/generators": "link:/Users/mario/Code/OpenSource/microlambda/generators",
+    "@microlambda/handling": "link:/Users/mario/Code/OpenSource/microlambda/handling",
+    "@microlambda/testing": "link:/Users/mario/Code/OpenSource/microlambda/testing",
+    "@microlambda/utils": "link:/Users/mario/Code/OpenSource/microlambda/utils",
+    "@types/aws-lambda": "^8.10.119",
+    "@types/jest": "^29.5.3",
+    "@types/node": "^20.4.2",
+    "@typescript-eslint/eslint-plugin": "^5.33.1",
+    "@typescript-eslint/parser": "^5.33.1",
+    "eslint": "^8.45.0",
+    "husky": "^8.0.3",
+    "jest": "^29.6.1",
+    "lint-staged": "^13.2.3",
+    "prettier": "^2.8.8",
+    "serverless": "^3.33.0",
+    "serverless-microlambda": "link:/Users/mario/Code/OpenSource/microlambda/plugin",
+    "serverless-offline": "^12.0.4",
+    "serverless-prune-plugin": "^2.0.2",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.1.6"
+  }
+}

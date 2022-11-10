@@ -1,0 +1,38 @@
+service: my-app-<%= name %>
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  region: ${env:AWS_REGION}
+  endpointType: REGIONAL
+  stage: ${env:ENV}
+  deploymentBucket:
+    name: ${env:DEPLOYMENT_BUCKET}
+  deploymentPrefix: ${env:ENV}/<%= name %>
+  tags: ${file(../../config/default-tags.yml)}
+
+functions:
+  hello-world:
+    handler: src/handlers/http/hello-world.handler
+    events:
+      - http:
+          path: greet
+          method: get
+          cors: ${file(../../config/default-cors.yml)}
+
+plugins:
+  - serverless-offline
+  - serverless-microlambda
+  - serverless-prune-plugin
+
+resources:
+  Resources:
+    ApiGatewayRestApi:
+      Type: AWS::ApiGateway::RestApi
+      Properties:
+        MinimumCompressionSize: 1024
+
+custom:
+  prune:
+    automatic: true
+    number: 2

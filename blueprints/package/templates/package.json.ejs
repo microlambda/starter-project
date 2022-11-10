@@ -1,0 +1,19 @@
+{
+  "name": "my-app/<%= name %>",
+  "version": "0.0.1",
+  "description": "<%= description %>",
+  "private": true,
+  "main": "lib/src/index.js",
+  "typings": "lib/src/index.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "lint": "npx eslint {src,test}/**/*.{ts,tsx,json,yml}",
+    "test": "npx jest",
+    "tsc": "npx tsc"
+  }
+}
