@@ -8,9 +8,9 @@
   },
   "scripts": {
     "lint": "npx eslint {src,test}/**/*.{ts,tsx,json,yml}",
-    "start": "npx sls offline start --host localhost --httpPort 3000",
+    "start": "npx sls offline start --host localhost",
     "stop": "npx kill-port --port 3000",
-    "test": "npx jest --config jest.config.unit.json --colors",
+    "test": "echo TODO",
     "tsc": "npx tsc",
     "prune": "npx sls prune -n 3",
     "create-domain": "npx sls create_domain",

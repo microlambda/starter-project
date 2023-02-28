@@ -1,4 +1,4 @@
-import { CompaniesHelpers, mockCompany, TestBed, PermissionsHelpers, userId } from '@dataportal/test-helpers';
+import { TestBed } from '@microlambda/test-helpers';
 import { ICompany } from '@dataportal/types';
 import { handler } from '../../../../src/handlers/http/list';
 

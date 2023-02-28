@@ -6,11 +6,9 @@ provider:
   region: ${env:AWS_REGION}
   endpointType: REGIONAL
   stage: ${env:ENV}
-  deploymentBucket:
-    name: ${ssm:/my-app/shared/buckets/deployments}
+  #deploymentBucket:
+   # name: ${ssm:/my-app/shared/buckets/deployments}
   deploymentPrefix: ${env:ENV}/hello-world
-  environment:
-    env: ${env:ENV}
 
 functions:
   hello-world:
@@ -19,7 +17,7 @@ functions:
       - http:
           path: greet
           method: get
-          cors: ${file:../../default-cors.yml}
+          cors: ${file(../../config/default-cors.yml)}
 
 plugins:
   - serverless-offline
@@ -49,5 +47,5 @@ custom:
     number: 2
   microlambda:
     domain:
-      domainName: ${env:API_DOMAIN_${env:ENV}}
+      domainName: ${env:API_DOMAIN}
       basePath: hello-world

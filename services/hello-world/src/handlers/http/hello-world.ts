@@ -4,5 +4,5 @@ import { Handler } from 'aws-lambda';
 void middleware();
 
 export const handler: Handler = handle(async (event: ApiHandlerEvent) => {
-  return `Hello ${event.queryStringParameters.name || 'World'} !`
+  return `Hello ${event.queryStringParameters?.name || 'World'} from ${process.env.env} environment!`
 });

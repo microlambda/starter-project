@@ -1,6 +1,6 @@
 import { APIGatewayProxyResult } from 'aws-lambda';
 import * as AWS from 'aws-sdk';
-import { after, ApiHandlerEvent, before, config, handleError } from '@microlambda/handling';
+import { after, ApiHandlerEvent, before, config, handleError, injectSecrets } from '@microlambda/handling';
 import { logger } from '@my-app/logger';
 
 export const middleware = async (): Promise<void> => {
@@ -22,10 +22,9 @@ export const middleware = async (): Promise<void> => {
   };
 
   // error
-  const beforeMiddlewareFunctions = [logEvent]; // by default
+  const beforeMiddlewareFunctions = [injectSecrets, logEvent]; // by default
   const afterMiddlewareFunctions = [logResponse];
   const errorMiddlewareFunctions = [logError];
-
 
   const type = 'ApiGateway';
   before(type, beforeMiddlewareFunctions);
