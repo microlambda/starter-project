@@ -5,8 +5,5 @@
     "checksums": "my-app-mila-checksums",
     "table": "my-app-mila-state"
   },
-  "sharedResources": {
-    "shared": "resources/shared/template.yml",
-    "env": "resources/env/template.yml"
-  }
+  "sharedResources": "infra/**/*.yml"
 }

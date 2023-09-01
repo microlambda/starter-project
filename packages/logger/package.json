@@ -12,6 +12,6 @@
   "scripts": {
     "lint": "npx eslint {src,test}/**/*.{ts,tsx,json,yml}",
     "tsc": "npx tsc",
-    "test": "npx jest --config jest.config.unit.json --colors"
+    "test": "npx jest --config jest.config.json --colors"
   }
 }

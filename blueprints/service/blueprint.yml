@@ -1,0 +1,4 @@
+name: service
+description: Create a new dataportal service
+
+destination: ${input.type}/services/${input.name}

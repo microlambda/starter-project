@@ -1,11 +1,6 @@
 node_modules
 .serverless
-**/webpack.config.js
 services/**/*.js
 packages/**/*.js
-scripts/**/*.js
-tooling/**/*.js
-services/*/node_modules
-packages/*/nodes_modules
 services/**/*.d.ts
 packages/**/*.d.ts

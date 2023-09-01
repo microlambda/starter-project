@@ -10,7 +10,7 @@
     "lint": "npx eslint {src,test}/**/*.{ts,tsx,json,yml}",
     "start": "npx sls offline start --host localhost",
     "stop": "npx kill-port --port 3000",
-    "test": "echo TODO",
+    "test": "npx jest",
     "tsc": "npx tsc",
     "prune": "npx sls prune -n 3",
     "create-domain": "npx sls create_domain",

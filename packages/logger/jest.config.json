@@ -1,0 +1,7 @@
+{
+  "displayName": {
+    "name": "Logger - Unit tests",
+    "color": "white"
+  },
+  "preset": "../../jest.preset.json"
+}

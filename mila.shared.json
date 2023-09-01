@@ -7,6 +7,33 @@
         "stdio": "all",
         "matcher": "contains",
         "value": "Server ready"
+      },
+      "src": {
+        "internals": [
+          ".env",
+          ".env.local",
+          "serverless.yml",
+          "package.json"
+        ],
+        "root": [
+          ".env",
+          ".env.local",
+          "config/*.yml"
+        ]
+      }
+    },
+    "transpile": {
+      "cmd": "npx ts-fast"
+    },
+    "prettier": {
+      "cmd": "../../node_modules/.bin/prettier . --write",
+      "src": {
+        "internals": [
+          "**/*.{ts,tsx,json,yml,html,md,js,jsx}"
+        ],
+        "root": [
+          ".prettierrc.json"
+        ]
       }
     },
     "lint": {
@@ -49,6 +76,7 @@
         "internals": [
           "test/**/*.ts",
           "src/**/*.ts",
+          "jest.config.json",
           "jest.config.unit.json",
           "jest.config.functional.json"
         ],
@@ -58,6 +86,7 @@
         ],
         "root": [
           "tsconfig.json",
+          "jest-unit-packages-preset.json",
           "jest-unit-services-preset.json",
           "jest-functional-preset.json"
         ]

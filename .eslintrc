@@ -2,8 +2,6 @@
   "parser": "@typescript-eslint/parser",
   "extends": [
     "plugin:@typescript-eslint/recommended",
-    "prettier/@typescript-eslint",
-    "plugin:prettier/recommended"
   ],
   "parserOptions": {
     "ecmaVersion": 2018,
@@ -11,12 +9,6 @@
     "project": "./tsconfig.eslint.json"
   },
   "rules": {
-    // Off
-    "@typescript-eslint/camelcase": "off",
-    "@typescript-eslint/member-ordering": "off",
-    "@typescript-eslint/interface-name-prefix": "off",
-
-    // Warns
     "@typescript-eslint/naming-convention": [
       "warn",
       {
@@ -53,17 +45,6 @@
           "match": true
         }
       }
-    ],
-    "@typescript-eslint/no-inferrable-types": "warn",
-    "prefer-const": "warn",
-    "no-console":"warn",
-    "no-lonely-if": "warn",
-    "no-unused-expressions": "warn",
-
-    // FIXME: These ones should be errors !
-    "@typescript-eslint/no-use-before-define": "off",
-    "@typescript-eslint/ban-ts-comment": "error",
-    "@typescript-eslint/no-explicit-any": "warn",
-    "@typescript-eslint/prefer-as-const": "warn"
+    ]
   }
 }

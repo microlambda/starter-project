@@ -1,0 +1,16 @@
+import { TestBed } from '@dataportal/test-helpers';
+import { handler } from '../../../../src/handlers/http/hello-world';
+
+describe('The hello world handler', () => {
+  let testBed: TestBed;
+
+  beforeAll(() => {
+    testBed = new TestBed(handler);
+  });
+
+  it('Should return 200 with a valid response body', async () => {
+    const response = await testBed.user();
+    expect(response.statusCode).toBe(200);
+    expect(response.body).toEqual('Hello from <%= name %> service');
+  });
+});

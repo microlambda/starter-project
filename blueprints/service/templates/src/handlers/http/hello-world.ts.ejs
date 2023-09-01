@@ -1,0 +1,10 @@
+import { Handler } from 'aws-lambda';
+import { logger } from '@dataportal/shared';
+import { ApiHandlerEvent, handle, middleware } from '@dataportal/middleware';
+
+void middleware();
+
+export const handler: Handler = handle(async (event: ApiHandlerEvent): Promise<string> => {
+  logger.debug({ event });
+  return 'Hello from <%= name %> service';
+});

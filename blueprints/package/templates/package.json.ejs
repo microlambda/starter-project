@@ -1,0 +1,31 @@
+{
+  "name": "<%= type === 'specific' ? '@dataportal-pr' : '@dataportal' %>/<%= name %>",
+  "version": "0.0.1",
+  "description": "<%= description %>",
+  "author": "Data Portal Development Team",
+  "private": true,
+  "main": "lib/src/index.js",
+  "typings": "lib/src/index.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "clear": "yarn run clear:modules && yarn run clear:lib && yarn run clear:package",
+    "clear:modules": "rm -rf ./node_modules",
+    "tsc": "npx tsc",
+    "clear:lib": "rm -rf ./lib",
+    "clear:package": "rm -rf ./.package",
+    "test": "yarn run test:unit",
+    "test:unit": "../../../node_modules/.bin/dotenv -e ../../../.env.tests-ci -- ../../../node_modules/.bin/jest --config jest.config.unit.json --colors --runInBand --forceExit"
+  },
+  "dependencies": {
+    "@dataportal/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "@dataportal/test-helpers": "workspace:*",
+    "@dataportal/types": "workspace:*"
+  }
+}

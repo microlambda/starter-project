@@ -1,0 +1,115 @@
+service: dataportal-<%= name %>
+
+provider:
+  name: aws
+  lambdaHashingVersion: 20201221
+  runtime: nodejs16.x
+  region: ${env:AWS_REGION}
+  endpointType: REGIONAL
+  stage: ${env:ENV}
+  deploymentBucket:
+    name: ${ssm:/dataportal/shared/buckets/deployments}
+  deploymentPrefix: ${env:ENV}/<%= name %>
+  environment:
+    env: ${env:ENV}
+    MIDDLEWARE_DEFAULT_REGION: ${env:MIDDLEWARE_DEFAULT_REGION}
+    MIDDLEWARE_ERROR_QUEUE: https://sqs.${env:MIDDLEWARE_DEFAULT_REGION}.amazonaws.com/${env:AWS_PROJECT_ID_${env:ENV}}/${env:ENV}DataportalMiddlewareErrors
+
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - lambda:InvokeFunction
+          Resource:
+            - arn:aws:lambda:eu-west-1:${env:AWS_PROJECT_ID_${env:ENV}}:function:${env:MIDDLEWARE_SERVICE_NAME}-${env:ENV}-*
+        - Effect: Allow
+          Action:
+            - dynamodb:Query
+            - dynamodb:GetItem
+            - dynamodb:PutItem
+            - dynamodb:DeleteItem
+          Resource:
+            - arn:aws:dynamodb:${self:provider.region}:${env:AWS_PROJECT_ID_${env:ENV}}:table/dataportal_${env:ENV}
+            - arn:aws:dynamodb:${self:provider.region}:${env:AWS_PROJECT_ID_${env:ENV}}:table/dataportal_${env:ENV}/index/*
+        - ${file(../../../serverless_config/middleware-sqs-permissions.yml)}
+        - ${file(../../../serverless_config/streams-permissions.yml)}
+  tags: ${file(../../../cf-tags_${env:ENV}.yml)}
+
+functions:
+  auth:
+    handler: src/handlers/auth.handler
+  hello:
+    handler: src/handlers/http/hello-world.handler
+    events:
+      - http:
+          path: v4/<%- serviceName %>
+          <<: *defaultAuthorizer
+          method: get
+          <<: *defaultCors
+
+plugins:
+  - serverless-plugin-log-retention
+  - serverless-offline
+  - serverless-microlambda
+  - serverless-dotenv-plugin
+  - serverless-prune-plugin
+  - serverless-plugin-aws-alerts
+
+resources:
+  Resources:
+    ApiGatewayRestApi:
+      Type: AWS::ApiGateway::RestApi
+      Properties:
+        MinimumCompressionSize: 1024
+    GatewayResponseDefault4XX:
+      Type: "AWS::ApiGateway::GatewayResponse"
+      Properties:
+        ResponseParameters:
+          gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
+          gatewayresponse.header.Access-Control-Allow-Headers: "'*'"
+        ResponseType: UNAUTHORIZED
+        RestApiId:
+          Ref: "ApiGatewayRestApi"
+        StatusCode: "401"
+
+functions:
+  auth:
+    handler: src/handlers/auth.handler
+  hello-world:
+    handler: src/handlers/http/hello-world.handler
+    events:
+      - http:
+          path: v4/<%= name %>/greets
+          method: get
+          authorizer: ${file(../../../serverless_config/authorizer-http-lambda.yml)}
+          cors: ${file(../../../serverless_config/cors-http-lambda.yml)}
+  # ${blueprint:handler-http} - injection needle, do not remove this line
+  # ${blueprint:handler-event} - injection needle, do not remove this line
+
+custom:
+  logRetentionInDays: 7
+  prune:
+    automatic: true
+    number: 2
+  microlambda:
+    localAuthorizer:
+      - replace:
+          name: auth
+          remove: true
+        with:
+          arn: arn:aws:lambda:${self:provider.region}:${env:AWS_PROJECT_ID_${env:ENV}}:function:dataportal-auth-${env:ENV}-auth
+          type: request
+          resultTtlInSeconds: 0
+          identitySource: "method.request.header.Authorization"
+    domain:
+      domainName: ${env:API_DOMAIN_${env:ENV}}
+      basePath: <%= name %>
+    packagr:
+      useLayer: true
+
+plugins:
+  - serverless-plugin-log-retention
+  - serverless-offline
+  - serverless-microlambda
+  - serverless-prune-plugin

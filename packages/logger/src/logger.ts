@@ -1,29 +1,18 @@
 /* eslint-disable no-console */
-enum LogVerbosity {
-  SILLY,
-  DEBUG,
-  LOG,
-  INFO,
-  WARN,
-  ERROR,
-  SILENT,
+const LogVerbosity: Record<string, number> = {
+  SILLY: 0,
+  DEBUG: 1,
+  LOG: 2,
+  INFO: 3,
+  WARN: 4,
+  ERROR: 5,
+  SILENT: 6,
 }
 
-const logLevel = (): LogVerbosity => {
-  switch (process.env.env) {
-    case 'test':
-    case undefined:
-      return process.env.NODE_ENV === 'test' ? LogVerbosity.SILENT : LogVerbosity.DEBUG;
-    case 'prod':
-      return LogVerbosity.INFO;
-    case 'preprod':
-    case 'staging':
-      return LogVerbosity.WARN;
-    case 'int':
-      return LogVerbosity.DEBUG;
-    default:
-      return LogVerbosity.SILLY;
-  }
+const logLevel = (): number => {
+  return process.env.LOG_LEVEL && Object.keys(LogVerbosity).includes(process.env.LOG_LEVEL)
+    ? LogVerbosity[process.env.LOG_LEVEL]
+    : LogVerbosity.INFO;
 };
 
 export const logger = {

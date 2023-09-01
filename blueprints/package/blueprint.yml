@@ -1,0 +1,4 @@
+name: package
+description: Create a new dataportal package
+
+destination: ${input.type}/packages/${input.name}

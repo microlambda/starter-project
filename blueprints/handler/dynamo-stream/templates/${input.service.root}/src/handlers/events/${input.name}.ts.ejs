@@ -1,0 +1,9 @@
+import { DynamoDBRecord } from 'aws-lambda';
+import { handle, DynamoDBRecordsUtils } from '@dataportal/shared';
+
+export const execute = async (event: DynamoDBRecord): Promise<void> => {
+  const <% if(type === 'INSERT') { %>{ newImage }<% } else if(type === 'MODIFY') { %>{ oldImage, newImage }<% } else { %>{ oldImage }<% }%> = DynamoDBRecordsUtils.verifyRecord<unknown>(event, '<%= type %>', <% if(keyConditionType === 'equals') { %>'<%= keyCondition %>'<% } else { %>(evt) =>evt.dynamodb.NewImage.sk.S.startsWith('<%= keyCondition %>')<% } %>);
+  throw new Error('Not Implemented');
+};
+
+export const handler = handle(execute);

@@ -11,7 +11,7 @@
   "scripts": {
     "lint": "npx eslint {src,test}/**/*.{ts,tsx,json,yml}",
     "tsc": "npx tsc",
-    "test:unit": "npx jest --config jest.config.unit.json --colors"
+    "test:unit": "npx jest --config jest.config.json --colors"
   },
   "dependencies": {
     "@my-app/logger": "workspace:*"

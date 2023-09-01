@@ -1,4 +1,4 @@
 src
 test
-jest.config.unit.json
+jest.config.json
 .gitignore

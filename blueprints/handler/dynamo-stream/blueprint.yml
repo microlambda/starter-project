@@ -1,0 +1,4 @@
+name: dynamodb-stream
+description: Create a new DynamoDB stream event handler
+
+destination: .

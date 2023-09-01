@@ -1,0 +1,4 @@
+name: http-handler
+description: Create a new HTTP event handler
+
+destination: ${input.service.root}

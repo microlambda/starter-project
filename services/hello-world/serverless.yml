@@ -6,9 +6,10 @@ provider:
   region: ${env:AWS_REGION}
   endpointType: REGIONAL
   stage: ${env:ENV}
-  #deploymentBucket:
-   # name: ${ssm:/my-app/shared/buckets/deployments}
+  deploymentBucket:
+    name: ${env:DEPLOYMENT_BUCKET}
   deploymentPrefix: ${env:ENV}/hello-world
+  tags: ${file(../../config/default-tags.yml)}
 
 functions:
   hello-world:

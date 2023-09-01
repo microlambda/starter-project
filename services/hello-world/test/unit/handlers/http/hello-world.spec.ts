@@ -1,44 +1,34 @@
-import { TestBed } from '@microlambda/test-helpers';
-import { ICompany } from '@dataportal/types';
-import { handler } from '../../../../src/handlers/http/list';
+import { TestBed } from '@microlambda/testing';
+import { handler } from "../../../../src/handlers/http/hello-world";
 
-let companiesHelpers: CompaniesHelpers;
-let companies: ICompany[];
-let permissionsHelpers: PermissionsHelpers;
-
-describe('The companies list handler - GET v4/companies', () => {
-  beforeAll(async () => {
-    companiesHelpers = new CompaniesHelpers();
-    permissionsHelpers = new PermissionsHelpers('portals');
-    let i = 0;
-    companies = [...Array(20)].map(() => {
-      i++;
-      return mockCompany({ companyName: `companyName - ${i}`, sort_field: `companyName - ${i}` });
-    });
+describe('The hello endpoint', () => {
+  beforeEach(() => {
+    process.env.LANG = 'en-US';
   });
-  beforeEach(async () => {
-    await Promise.all(companies.map((c) => companiesHelpers.save(c)));
-  });
-  afterEach(async () => {
-    // Clear global table
-    await companiesHelpers.clear();
-  });
-  it('should return 200 and all companies if user is admin', async () => {
+  it('should return 200 and and greet the world if no name specified', async () => {
     const testBed = new TestBed(handler);
-    const res = await testBed.admin();
+    const res = await testBed.get();
     expect(res.statusCode).toBe(200);
-    expect(res.body.length).toBe(companies.length);
+    expect(res.body).toBe('Hello World!');
   });
-  it.skip('should return 200 and all companies if user is a portal owner', async () => {
-    await permissionsHelpers.grantUser('any-portal-id', userId, ['portalOwner']);
+  it('should return 200 and and greet the name given in query parameters', async () => {
     const testBed = new TestBed(handler);
-    const res = await testBed.user();
+    const res = await testBed.queryParameters({ name: 'John' }).get();
     expect(res.statusCode).toBe(200);
-    expect(res.body.length).toBe(companies.length);
+    expect(res.body).toBe('Hello John!');
   });
-  it('should return 403 and all companies if user isn not admin nor portal owner', async () => {
+  it('should return 200 and greet the user in the selected language', async () => {
+    process.env.LANG = 'fr-FR';
     const testBed = new TestBed(handler);
-    const res = await testBed.user();
-    expect(res.statusCode).toBe(403);
+    const res = await testBed.queryParameters({ name: 'Jean' }).get();
+    expect(res.statusCode).toBe(200);
+    expect(res.body).toBe('Bonjour Jean!');
+  });
+  it('should return 200 and greet the world in the selected language', async () => {
+    process.env.LANG = 'es-ES';
+    const testBed = new TestBed(handler);
+    const res = await testBed.get();
+    expect(res.statusCode).toBe(200);
+    expect(res.body).toBe('Hola Mundo!');
   });
 });

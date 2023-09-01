@@ -1,0 +1,8 @@
+import { ApiHandlerEvent, handle, middleware } from '@dataportal/middleware';
+import { Handler } from 'aws-lambda';
+
+middleware();
+
+export const handler: Handler = handle(async (event: ApiHandlerEvent) => {
+    throw new Error('Not implemented');
+});

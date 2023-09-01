@@ -1,0 +1,15 @@
+import { DynamoDBRecord } from 'aws-lambda';
+import { logger } from '@dataportal/shared';
+
+import { dispatchEvent } from '../dispatch-event';
+
+export const entity = '<%= service.name %>';
+export const action = '<% if(type === 'INSERT') { %>created<% } else if (type === 'MODIFY') { %>updated<% } else { %>removed<% } %>';
+
+export const is = (event: DynamoDBRecord): boolean => {
+  return event.eventName === '<%= type %>' && <% if(keyConditionType === 'equals') { %>event.dynamodb.Keys.sk.S === '<%= keyCondition %>'<% } else { %>event.dynamodb.NewImage.sk.S.startsWith('<%= keyCondition %>')<% } %>;
+};
+
+export const execute = async (event: DynamoDBRecord): Promise<void> => {
+  return dispatchEvent('<%= service.name %>', '<%= name %>', event);
+};

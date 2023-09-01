@@ -1,0 +1,35 @@
+openapi: 3.0.0
+info:
+  title: <%- name %>
+  version: '1.0'
+servers:
+  - url: 'http://localhost:$SERVICE_PORT'
+paths:
+  '/v4/<%- name %>/greets':
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: Returns a Hello object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HelloObject'
+      operationId: get-hello-object
+      description: Gets the Hello object
+
+components:
+  schemas:
+    HelloObject:
+      title: HelloObject
+      type: object
+      properties:
+        content:
+          type: string
+          description: Contains 'Hello World'
+      required:
+        - content
+  securitySchemes:
+    DP_AUTH_ID_TOKEN:
+      type: oauth2

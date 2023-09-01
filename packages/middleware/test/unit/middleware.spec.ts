@@ -1,6 +1,3 @@
-import { groupByPriority } from '../../src/middleware';
-import { IMiddleware } from '@dataportal/types';
-
 describe('The group by priority function', () => {
   it('should return empty array if empty array received', () => {
     expect(groupByPriority([])).toEqual([]);

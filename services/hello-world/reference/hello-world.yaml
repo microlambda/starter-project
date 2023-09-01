@@ -7,7 +7,7 @@ paths:
     get:
       responses:
         '200':
-          description: 'If no error, returns the requested ''Company'' object'
+          description: "If no error, returns the requested 'Company' object"
           content:
             application/json:
               schema:
