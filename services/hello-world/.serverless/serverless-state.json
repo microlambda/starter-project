@@ -1,0 +1,498 @@
+{
+  "service": {
+    "service": "my-app-hello-world",
+    "serviceObject": {
+      "name": "my-app-hello-world"
+    },
+    "provider": {
+      "name": "aws",
+      "runtime": "nodejs16.x",
+      "region": "eu-west-1",
+      "endpointType": "REGIONAL",
+      "stage": "local",
+      "deploymentBucket": "none",
+      "deploymentPrefix": "local/hello-world",
+      "tags": {
+        "BillingProject": "my-app",
+        "Environment": "local"
+      },
+      "versionFunctions": true,
+      "deploymentBucketObject": {
+        "name": "none"
+      },
+      "compiledCloudFormationTemplate": {
+        "AWSTemplateFormatVersion": "2010-09-09",
+        "Description": "The AWS CloudFormation template for this Serverless application",
+        "Resources": {
+          "HelloDashworldLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/my-app-hello-world-local-hello-world"
+            }
+          },
+          "IamRoleLambdaExecution": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+              "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                  {
+                    "Effect": "Allow",
+                    "Principal": {
+                      "Service": [
+                        "lambda.amazonaws.com"
+                      ]
+                    },
+                    "Action": [
+                      "sts:AssumeRole"
+                    ]
+                  }
+                ]
+              },
+              "Policies": [
+                {
+                  "PolicyName": {
+                    "Fn::Join": [
+                      "-",
+                      [
+                        "my-app-hello-world",
+                        "local",
+                        "lambda"
+                      ]
+                    ]
+                  },
+                  "PolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                      {
+                        "Effect": "Allow",
+                        "Action": [
+                          "logs:CreateLogStream",
+                          "logs:CreateLogGroup",
+                          "logs:TagResource"
+                        ],
+                        "Resource": [
+                          {
+                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/my-app-hello-world-local*:*"
+                          }
+                        ]
+                      },
+                      {
+                        "Effect": "Allow",
+                        "Action": [
+                          "logs:PutLogEvents"
+                        ],
+                        "Resource": [
+                          {
+                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/my-app-hello-world-local*:*:*"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ],
+              "Path": "/",
+              "RoleName": {
+                "Fn::Join": [
+                  "-",
+                  [
+                    "my-app-hello-world",
+                    "local",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    "lambdaRole"
+                  ]
+                ]
+              }
+            }
+          },
+          "HelloDashworldLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": "none",
+                "S3Key": "local/hello-world/my-app-hello-world/local/1693566117907-2023-09-01T11:01:57.907Z/bundle.zip"
+              },
+              "Handler": "src/handlers/http/hello-world.handler",
+              "Runtime": "nodejs16.x",
+              "FunctionName": "my-app-hello-world-local-hello-world",
+              "MemorySize": 1024,
+              "Timeout": 6,
+              "Tags": [
+                {
+                  "Key": "BillingProject",
+                  "Value": "my-app"
+                },
+                {
+                  "Key": "Environment",
+                  "Value": "local"
+                }
+              ],
+              "Environment": {
+                "Variables": {}
+              },
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              }
+            },
+            "DependsOn": [
+              "HelloDashworldLogGroup"
+            ]
+          },
+          "HelloDashworldLambdaVersionWS59Pv6DMpVoVQnxNDXvALzNam5MTKJBwKexjgGNTkQ": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "HelloDashworldLambdaFunction"
+              },
+              "CodeSha256": "SFXF9Pi6w2Ak8IwjdUmIF4Nt659hkRNGoFlwPS5AAGo="
+            }
+          },
+          "ApiGatewayRestApi": {
+            "Type": "AWS::ApiGateway::RestApi",
+            "Properties": {
+              "Name": "local-my-app-hello-world",
+              "EndpointConfiguration": {
+                "Types": [
+                  "REGIONAL"
+                ]
+              },
+              "Policy": "",
+              "MinimumCompressionSize": 1024
+            }
+          },
+          "ApiGatewayResourceGreet": {
+            "Type": "AWS::ApiGateway::Resource",
+            "Properties": {
+              "ParentId": {
+                "Fn::GetAtt": [
+                  "ApiGatewayRestApi",
+                  "RootResourceId"
+                ]
+              },
+              "PathPart": "greet",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayMethodGreetOptions": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "AuthorizationType": "NONE",
+              "HttpMethod": "OPTIONS",
+              "MethodResponses": [
+                {
+                  "StatusCode": "200",
+                  "ResponseParameters": {
+                    "method.response.header.Access-Control-Allow-Origin": true,
+                    "method.response.header.Access-Control-Allow-Headers": true,
+                    "method.response.header.Access-Control-Allow-Methods": true,
+                    "method.response.header.Access-Control-Allow-Credentials": true
+                  },
+                  "ResponseModels": {}
+                }
+              ],
+              "RequestParameters": {},
+              "Integration": {
+                "Type": "MOCK",
+                "RequestTemplates": {
+                  "application/json": "{statusCode:200}"
+                },
+                "ContentHandling": "CONVERT_TO_TEXT",
+                "IntegrationResponses": [
+                  {
+                    "StatusCode": "200",
+                    "ResponseParameters": {
+                      "method.response.header.Access-Control-Allow-Origin": "'*'",
+                      "method.response.header.Access-Control-Allow-Headers": "'Authorization,Content-Type,X-Amz-Date,X-Amz-Security-Token,X-Api-Key'",
+                      "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
+                      "method.response.header.Access-Control-Allow-Credentials": "'true'"
+                    },
+                    "ResponseTemplates": {
+                      "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
+                    }
+                  }
+                ]
+              },
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceGreet"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayMethodGreetGet": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "HttpMethod": "GET",
+              "RequestParameters": {},
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceGreet"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "ApiKeyRequired": false,
+              "AuthorizationType": "NONE",
+              "Integration": {
+                "IntegrationHttpMethod": "POST",
+                "Type": "AWS_PROXY",
+                "Uri": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":apigateway:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":lambda:path/2015-03-31/functions/",
+                      {
+                        "Fn::GetAtt": [
+                          "HelloDashworldLambdaFunction",
+                          "Arn"
+                        ]
+                      },
+                      "/invocations"
+                    ]
+                  ]
+                }
+              },
+              "MethodResponses": []
+            },
+            "DependsOn": [
+              "HelloDashworldLambdaPermissionApiGateway"
+            ]
+          },
+          "ApiGatewayDeployment1693566115761": {
+            "Type": "AWS::ApiGateway::Deployment",
+            "Properties": {
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "StageName": "local"
+            },
+            "DependsOn": [
+              "ApiGatewayMethodGreetOptions",
+              "ApiGatewayMethodGreetGet"
+            ]
+          },
+          "HelloDashworldLambdaPermissionApiGateway": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": [
+                  "HelloDashworldLambdaFunction",
+                  "Arn"
+                ]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "apigateway.amazonaws.com",
+              "SourceArn": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "ApiGatewayRestApi"
+                    },
+                    "/*/*"
+                  ]
+                ]
+              }
+            }
+          },
+          "GatewayResponseDefault4XX": {
+            "Type": "AWS::ApiGateway::GatewayResponse",
+            "Properties": {
+              "ResponseParameters": {
+                "gatewayresponse.header.Access-Control-Allow-Origin": "'*'",
+                "gatewayresponse.header.Access-Control-Allow-Headers": "'*'"
+              },
+              "ResponseType": "UNAUTHORIZED",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "StatusCode": "401"
+            }
+          }
+        },
+        "Outputs": {
+          "ServerlessDeploymentBucketName": {
+            "Value": "none",
+            "Export": {
+              "Name": "sls-my-app-hello-world-local-ServerlessDeploymentBucketName"
+            }
+          },
+          "HelloDashworldLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "HelloDashworldLambdaVersionWS59Pv6DMpVoVQnxNDXvALzNam5MTKJBwKexjgGNTkQ"
+            },
+            "Export": {
+              "Name": "sls-my-app-hello-world-local-HelloDashworldLambdaFunctionQualifiedArn"
+            }
+          },
+          "ServiceEndpoint": {
+            "Description": "URL of the service endpoint",
+            "Value": {
+              "Fn::Join": [
+                "",
+                [
+                  "https://",
+                  {
+                    "Ref": "ApiGatewayRestApi"
+                  },
+                  ".execute-api.",
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  ".",
+                  {
+                    "Ref": "AWS::URLSuffix"
+                  },
+                  "/local"
+                ]
+              ]
+            },
+            "Export": {
+              "Name": "sls-my-app-hello-world-local-ServiceEndpoint"
+            }
+          }
+        }
+      },
+      "environment": {},
+      "vpc": {}
+    },
+    "custom": {
+      "prune": {
+        "automatic": true,
+        "number": 2
+      },
+      "microlambda": {
+        "domain": {
+          "domainName": "localhost",
+          "basePath": "hello-world"
+        }
+      }
+    },
+    "plugins": [
+      "serverless-offline",
+      "serverless-microlambda",
+      "serverless-prune-plugin"
+    ],
+    "pluginsData": {},
+    "functions": {
+      "hello-world": {
+        "handler": "src/handlers/http/hello-world.handler",
+        "events": [
+          {
+            "http": {
+              "path": "greet",
+              "method": "get",
+              "cors": {
+                "methods": [
+                  "OPTIONS",
+                  "GET"
+                ],
+                "headers": [
+                  "Authorization",
+                  "Content-Type",
+                  "X-Amz-Date",
+                  "X-Amz-Security-Token",
+                  "X-Api-Key"
+                ],
+                "allowCredentials": true,
+                "origins": [
+                  "*"
+                ]
+              },
+              "integration": "AWS_PROXY"
+            }
+          }
+        ],
+        "name": "my-app-hello-world-local-hello-world",
+        "package": {},
+        "memory": 1024,
+        "timeout": 6,
+        "runtime": "nodejs16.x",
+        "vpc": {},
+        "versionLogicalId": "HelloDashworldLambdaVersionWS59Pv6DMpVoVQnxNDXvALzNam5MTKJBwKexjgGNTkQ"
+      }
+    },
+    "resources": {
+      "Resources": {
+        "ApiGatewayRestApi": {
+          "Type": "AWS::ApiGateway::RestApi",
+          "Properties": {
+            "MinimumCompressionSize": 1024
+          }
+        },
+        "GatewayResponseDefault4XX": {
+          "Type": "AWS::ApiGateway::GatewayResponse",
+          "Properties": {
+            "ResponseParameters": {
+              "gatewayresponse.header.Access-Control-Allow-Origin": "'*'",
+              "gatewayresponse.header.Access-Control-Allow-Headers": "'*'"
+            },
+            "ResponseType": "UNAUTHORIZED",
+            "RestApiId": {
+              "Ref": "ApiGatewayRestApi"
+            },
+            "StatusCode": "401"
+          }
+        }
+      },
+      "Outputs": {}
+    },
+    "configValidationMode": "warn",
+    "serviceFilename": "serverless.yml",
+    "initialServerlessConfig": {
+      "service": "my-app-hello-world",
+      "provider": {
+        "$ref": "$[\"service\"][\"provider\"]"
+      },
+      "functions": {
+        "$ref": "$[\"service\"][\"functions\"]"
+      },
+      "plugins": {
+        "$ref": "$[\"service\"][\"plugins\"]"
+      },
+      "resources": {
+        "$ref": "$[\"service\"][\"resources\"]"
+      },
+      "custom": {
+        "$ref": "$[\"service\"][\"custom\"]"
+      }
+    },
+    "layers": {},
+    "isDashboardMonitoringPreconfigured": false
+  },
+  "package": {
+    "artifactDirectoryName": "local/hello-world/my-app-hello-world/local/1693566117907-2023-09-01T11:01:57.907Z",
+    "artifact": "bundle.zip"
+  }
+}
