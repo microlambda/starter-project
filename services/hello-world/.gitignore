@@ -1,2 +1,3 @@
-.package/
-lib/
+/.package
+/lib
+/.serverless
