@@ -4,7 +4,7 @@ var questions = [
     {
         type: "input",
         name: "name",
-        message: "Your service name (e.g. sources)",
+        message: "Your service name",
         validate: function (input) {
             if (input.match(/^[a-z-]+$/) == null) {
                 return 'service name must follow pattern ^[a-z-]+$';
@@ -17,11 +17,5 @@ var questions = [
         name: "description",
         message: "Describe briefly your service",
     },
-    {
-        type: "list",
-        name: "type",
-        message: "What kind of service is it ?",
-        choices: ["generic", "specific"]
-    }
 ];
 exports.default = questions;
