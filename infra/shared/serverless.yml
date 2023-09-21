@@ -11,7 +11,7 @@ resources:
     DeploymentBucket:
       Type: AWS::S3::Bucket
       Properties:
-        BucketName: my-app-deployments-bucket
+        BucketName: !Sub 'my-app-deployments-bucket-${AWS::Region}'
     DeploymentBucketParameter:
       Type: AWS::SSM::Parameter
       Properties:
