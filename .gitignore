@@ -94,3 +94,4 @@ services/*/.caches
 packages/*/.lib
 services/*/.lib
 services/*/.serverless
+blueprints/**/*.js
