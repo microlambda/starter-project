@@ -1,0 +1,7 @@
+{
+  "displayName": {
+    "name": "hello-v2 service - Unit tests",
+    "color": "white"
+  },
+  "preset": "../../jest.preset.json"
+}

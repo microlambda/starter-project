@@ -1688,6 +1688,15 @@ __metadata:
   languageName: node
   linkType: soft
 
+"@my-app/hello-v2@workspace:services/hello-v2":
+  version: 0.0.0-use.local
+  resolution: "@my-app/hello-v2@workspace:services/hello-v2"
+  dependencies:
+    "@my-app/logger": "workspace:*"
+    "@my-app/middleware": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
 "@my-app/hello-world@workspace:services/hello-world":
   version: 0.0.0-use.local
   resolution: "@my-app/hello-world@workspace:services/hello-world"
