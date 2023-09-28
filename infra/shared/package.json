@@ -1,0 +1,13 @@
+{
+  "name": "@my-app/shared-infra",
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "@microlambda/aws": "link:/Users/mario/Code/OpenSource/microlambda/aws",
+    "ts-node": "^10.9.1"
+  },
+  "scripts": {
+    "infra:deploy": "npx ts-node ./deploy.ts",
+    "infra:remove": "npx ts-node ./remove.ts"
+  }
+}

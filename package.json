@@ -16,12 +16,14 @@
   },
   "workspaces": [
     "packages/*",
-    "services/*"
+    "services/*",
+    "infra/*"
   ],
   "devDependencies": {
     "@microlambda/cli": "link:/Users/mario/Code/OpenSource/microlambda/cli",
     "@microlambda/generators": "link:/Users/mario/Code/OpenSource/microlambda/generators",
     "@microlambda/handling": "link:/Users/mario/Code/OpenSource/microlambda/handling",
+    "@microlambda/runner-cli": "link:/Users/mario/Code/OpenSource/microlambda/runner-cli",
     "@microlambda/testing": "link:/Users/mario/Code/OpenSource/microlambda/testing",
     "@microlambda/utils": "link:/Users/mario/Code/OpenSource/microlambda/utils",
     "@types/aws-lambda": "^8.10.119",
