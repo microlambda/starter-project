@@ -4,6 +4,7 @@ import { Handler } from 'aws-lambda';
 void middleware();
 
 export const handler: Handler = handle(async (event: ApiHandlerEvent) => {
+  console.debug(event.queryStringParameters)
   return `${hello()} ${event.queryStringParameters?.name || world()}!`;
 });
 

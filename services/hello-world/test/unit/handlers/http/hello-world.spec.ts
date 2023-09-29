@@ -27,7 +27,7 @@ describe('The hello endpoint', () => {
   it('should return 200 and greet the world in the selected language', async () => {
     process.env.LANG = 'es-ES';
     const testBed = new TestBed(handler);
-    const res = await testBed.get();
+    const res = await testBed.queryParameters({}).get();
     expect(res.statusCode).toBe(200);
     expect(res.body).toBe('Hola Mundo!');
   });

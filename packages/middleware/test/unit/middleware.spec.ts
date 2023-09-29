@@ -1,8 +1,4 @@
 describe('The middleware function', () => {
-  it('should set CORS configuration', () => {
-
-  });
-  it('should register default middleware', () => {
-
-  });
+  it.todo('should set CORS configuration');
+  it.todo('should register default middleware');
 })
