@@ -44,9 +44,19 @@ And choose all regions were infrastructure should be replicated.
 
 Then perform your first deploy using ``yarn mila deploy -e <env-name>``
 
+### Create a regional replicate
+
+Create a replicate for an exiting environment using ``yarn mila envs create-replicate <env-name> <target-region>``.
+
+The services will be deployed on the region and the remote state updated.
+
+You can remove a replicate using ``yarn mila envs destroy-replicate <env-name> <target-region>``
+
+> **Warning**: this will destroy all resources in the target region.
+
 ### Destroy an environment
 
-Destory an existing environment using ``yarn mila envs create <env-name>``.
+Destory an existing environment using ``yarn mila envs destroy <env-name>``.
 
 > **Warning**: this will destroy all resources related to this environment.
 
@@ -54,9 +64,23 @@ Destory an existing environment using ``yarn mila envs create <env-name>``.
 
 Use blueprints to generate boilerplate for new services and packages using ``yarn mila generate``
 
+### Remove a microservice
+
+To remove a microservice which has already been deployed, use the remove command to delete services in every environment
+it has been deployed.
+
+``yarn mila remove -e <env> -s <my-service>``
+
+Then, remove it from the codebase
+
+```bash
+rm -rf ./services/<my-service>
+yarn
+```
+
 ### Guides
 
-* [Manage environments variable](https://microlambda.dev/docs/tutorial-basics/environment-variables)
+* [Manage environment variables and secrets](https://microlambda.dev/docs/tutorial-basics/environment-variables)
 * [Using custom domain](https://microlambda.dev/docs/deployments/using-custom-domains)
 * [Create regional replicates](https://microlambda.dev/docs/advanced/infrastructure-replication)
 * [Generate code with blueprints](https://microlambda.dev/docs/advanced/customize-blueprints)
