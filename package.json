@@ -16,14 +16,16 @@
   },
   "workspaces": [
     "packages/*",
-    "services/*"
+    "services/*",
+    "infra/*"
   ],
   "devDependencies": {
-    "@microlambda/cli": "link:/Users/mario/Code/OpenSource/microlambda/cli",
-    "@microlambda/generators": "link:/Users/mario/Code/OpenSource/microlambda/generators",
-    "@microlambda/handling": "link:/Users/mario/Code/OpenSource/microlambda/handling",
-    "@microlambda/testing": "link:/Users/mario/Code/OpenSource/microlambda/testing",
-    "@microlambda/utils": "link:/Users/mario/Code/OpenSource/microlambda/utils",
+    "@microlambda/cli": "^1.0.0-rc.1",
+    "@microlambda/generators": "^1.0.0-rc.1",
+    "@microlambda/handling": "^1.0.0-rc.1",
+    "@microlambda/runner-cli": "^1.0.0-rc.1",
+    "@microlambda/testing": "^1.0.0-rc.1",
+    "@microlambda/utils": "^1.0.0-rc.1",
     "@types/aws-lambda": "^8.10.119",
     "@types/jest": "^29.5.3",
     "@types/node": "^20.4.2",
@@ -35,7 +37,7 @@
     "lint-staged": "^13.2.3",
     "prettier": "^2.8.8",
     "serverless": "^3.33.0",
-    "serverless-microlambda": "link:/Users/mario/Code/OpenSource/microlambda/plugin",
+    "serverless-microlambda": "^1.0.0-rc.1",
     "serverless-offline": "^12.0.4",
     "serverless-prune-plugin": "^2.0.2",
     "ts-jest": "^29.1.1",

@@ -9,7 +9,7 @@
   "scripts": {
     "lint": "npx eslint {src,test}/**/*.{ts,tsx,json,yml}",
     "start": "npx sls offline start --host localhost",
-    "destroy": "npx sls destroy",
+    "destroy": "npx sls remove",
     "test": "npx jest",
     "tsc": "npx tsc",
     "prune": "npx sls prune -n 3",

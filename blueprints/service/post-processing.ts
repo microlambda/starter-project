@@ -1,7 +1,6 @@
-import { execaSync } from 'execa';
-
+import { execSync } from 'child_process';
 const postProcessing = async (): Promise<void> => {
-  execaSync('yarn', { stdio: 'inherit' });
+  execSync('yarn', { stdio: 'inherit' });
   console.info('✨ Success.');
 }
 

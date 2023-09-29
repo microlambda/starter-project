@@ -4,6 +4,5 @@
   "state": {
     "checksums": "my-app-mila-checksums",
     "table": "my-app-mila-state"
-  },
-  "sharedResources": "infra/**/*.yml"
+  }
 }

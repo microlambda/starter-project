@@ -1,0 +1,42 @@
+{
+  "sharedInfra": {
+    "envSpecific": false
+  },
+  "targets": {
+    "prettier": {
+      "cmd": "../../node_modules/.bin/prettier . --write",
+      "src": {
+        "internals": [
+          "**/*.{ts,tsx,json,yml,html,md,js,jsx}"
+        ],
+        "root": [
+          ".prettierrc.json"
+        ]
+      }
+    },
+    "lint": {
+      "script": "lint",
+      "src": {
+        "internals": [
+          "{src,test}/**/*.{ts,tsx,json,yml}"
+        ],
+        "root": [
+          "tsconfig.eslint.json",
+          "tsconfig.json"
+        ]
+      }
+    },
+    "infra:deploy": {
+      "script": "infra:deploy",
+      "src": {
+        "internals": [
+          "**/*.ts",
+          "shared-infra-stack.yml"
+        ]
+      }
+    },
+    "infra:remove": {
+      "script": "infra:remove"
+    }
+  }
+}

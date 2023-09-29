@@ -6,8 +6,8 @@ const questions: QuestionCollection = [
     name: "name",
     message: "Your service name",
     validate: (input: string) => {
-      if (input.match(/^[a-z-]+$/) == null) {
-        return 'service name must follow pattern ^[a-z-]+$';
+      if (input.match(/^[0-9A-Za-z-]+$/) == null) {
+        return 'service name must follow pattern ^[0-9A-Za-z-]+$';
       }
       return true;
     },
