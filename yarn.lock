@@ -2806,9 +2806,9 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@microlambda/aws@npm:1.0.0-rc.1":
-  version: 1.0.0-rc.1
-  resolution: "@microlambda/aws@npm:1.0.0-rc.1"
+"@microlambda/aws@npm:1.0.0-rc.2":
+  version: 1.0.0-rc.2
+  resolution: "@microlambda/aws@npm:1.0.0-rc.2"
   dependencies:
     "@aws-sdk/client-acm": ^3.363.0
     "@aws-sdk/client-apigatewayv2": ^3.363.0
@@ -2821,23 +2821,23 @@ __metadata:
     "@aws-sdk/client-secrets-manager": ^3.363.0
     "@aws-sdk/client-ssm": ^3.370.0
     "@aws-sdk/lib-storage": ^3.367.0
-  checksum: 373fa76452ed4e862c90755eb3002595bf25550c9d51ce9a48b2cb0a829436b44faab7c00a2413b2332867b198d637946cf685f7a623250cc7e68b3d1f9c5f95
+  checksum: 13c5fcab9dc18875f285cd77b366d326c1da790e7c5904879920cf604951b8cd8e27e454803f4013bc59cfeef41766b945d211984bed62ebddfaa3ace09d45ac
   languageName: node
   linkType: hard
 
-"@microlambda/cli@npm:^1.0.0-rc.1":
-  version: 1.0.0-rc.1
-  resolution: "@microlambda/cli@npm:1.0.0-rc.1"
+"@microlambda/cli@npm:^1.0.0-rc.2":
+  version: 1.0.0-rc.2
+  resolution: "@microlambda/cli@npm:1.0.0-rc.2"
   dependencies:
-    "@microlambda/config": 1.0.0-rc.1
-    "@microlambda/core": 1.0.0-rc.1
-    "@microlambda/errors": 1.0.0-rc.1
-    "@microlambda/generators": 1.0.0-rc.1
-    "@microlambda/logger": 1.0.0-rc.1
-    "@microlambda/remote-state": 1.0.0-rc.1
-    "@microlambda/runner-core": 1.0.0-rc.1
-    "@microlambda/server": 1.0.0-rc.1
-    "@microlambda/utils": 1.0.0-rc.1
+    "@microlambda/config": 1.0.0-rc.2
+    "@microlambda/core": 1.0.0-rc.2
+    "@microlambda/errors": 1.0.0-rc.2
+    "@microlambda/generators": 1.0.0-rc.2
+    "@microlambda/logger": 1.0.0-rc.2
+    "@microlambda/remote-state": 1.0.0-rc.2
+    "@microlambda/runner-core": 1.0.0-rc.2
+    "@microlambda/server": 1.0.0-rc.2
+    "@microlambda/utils": 1.0.0-rc.2
     chalk: ^4.1.2
     cli-table3: ^0.6.3
     commander: ^11.0.0
@@ -2848,42 +2848,42 @@ __metadata:
   bin:
     microlambda: dist/index.js
     mila: dist/index.js
-  checksum: ac2f40e66e6af50c0c61f88b19a88b597f3cdcd77fe36fee2822ff9049740fedd9b5cf93bd59056b62e6e182bf9ccfc5bacd8a3c6a621eda5d0cffc9f4a5f481
+  checksum: b99400f2c4a03b11675a5293a718ad125ba78e5090aa3bf9dc715bfd0d82763276e50e5adb24256fa171c09d68807cf830895105388953729380ec13510deac8
   languageName: node
   linkType: hard
 
-"@microlambda/client@npm:1.0.0-rc.1":
-  version: 1.0.0-rc.1
-  resolution: "@microlambda/client@npm:1.0.0-rc.1"
+"@microlambda/client@npm:1.0.0-rc.2":
+  version: 1.0.0-rc.2
+  resolution: "@microlambda/client@npm:1.0.0-rc.2"
   dependencies:
     ansi-to-html: ^0.7.2
     dagre-d3: ^0.6.4
     socket.io-client: ^4.7.1
     svelte: ^4.1.1
     timeago.js: ^4.0.2
-  checksum: 2fbdfc5100b5ebd109951eadee501c5e5547081885d2f8bb4a3719509cc9a6705a0be9bbbb65bd417dc2042aa065a4c150e41fbdf90e86158eef68299b8e0195
+  checksum: cc27e24a75f0cd7b8395931a58f33e4a2719c937e9459f87f2a77d7ec8e6fa6b62621fad95ce025855649b7928137df48164388d8b8047cd125d42e20bccb257
   languageName: node
   linkType: hard
 
-"@microlambda/config@npm:1.0.0-rc.1":
-  version: 1.0.0-rc.1
-  resolution: "@microlambda/config@npm:1.0.0-rc.1"
+"@microlambda/config@npm:1.0.0-rc.2":
+  version: 1.0.0-rc.2
+  resolution: "@microlambda/config@npm:1.0.0-rc.2"
   dependencies:
     fs-extra: ^11.1.1
     joi: ^17.9.2
-  checksum: da97e7974e2216f4a48bd79a23bdfa1f8b495bcd0a113b6cf2b15130e51551be9fe828f58d7f13ec7e0153d045eedf273495975c4a72b670a5c676f6655b79ae
+  checksum: 46cafd220800cf893dcf64bf30f0bc30d144c6776baf60598a1865af0ce02275075f1738b980a74503d4fecd9fa45c678fc6d8d839fde4dbbc4fb1a0fb09a3af
   languageName: node
   linkType: hard
 
-"@microlambda/core@npm:1.0.0-rc.1":
-  version: 1.0.0-rc.1
-  resolution: "@microlambda/core@npm:1.0.0-rc.1"
+"@microlambda/core@npm:1.0.0-rc.2":
+  version: 1.0.0-rc.2
+  resolution: "@microlambda/core@npm:1.0.0-rc.2"
   dependencies:
-    "@microlambda/environments": 1.0.0-rc.1
-    "@microlambda/logger": 1.0.0-rc.1
-    "@microlambda/runner-core": 1.0.0-rc.1
-    "@microlambda/types": 1.0.0-rc.1
-    "@microlambda/utils": 1.0.0-rc.1
+    "@microlambda/environments": 1.0.0-rc.2
+    "@microlambda/logger": 1.0.0-rc.2
+    "@microlambda/runner-core": 1.0.0-rc.2
+    "@microlambda/types": 1.0.0-rc.2
+    "@microlambda/utils": 1.0.0-rc.2
     archiver: ^5.3.1
     chalk: ^4.1.2
     chokidar: ^3.5.3
@@ -2905,47 +2905,47 @@ __metadata:
     uuid: ^8.3.2
   peerDependencies:
     typescript: ^5.0.4
-  checksum: 41b272c3360bd4ee4b241dc65b780b14c44c25cda8ec648da7dc69a4ba020d50dd0ca190bd3618ff3bba82f91ae19fbaefdcf3399a7ca8bbbc94b16ad55d0f52
+  checksum: 4b977d3e9ae20ca1ef759bfd7851aeec3f94147f2057c33ed39c5ae57efc80f13d8742c2a90cea25235adcf6635e43dd8eb34a657c691910c150fdaa3ef72ecb
   languageName: node
   linkType: hard
 
-"@microlambda/environments@npm:1.0.0-rc.1":
-  version: 1.0.0-rc.1
-  resolution: "@microlambda/environments@npm:1.0.0-rc.1"
+"@microlambda/environments@npm:1.0.0-rc.2":
+  version: 1.0.0-rc.2
+  resolution: "@microlambda/environments@npm:1.0.0-rc.2"
   dependencies:
-    "@microlambda/aws": 1.0.0-rc.1
-    "@microlambda/config": 1.0.0-rc.1
-    "@microlambda/errors": 1.0.0-rc.1
-    "@microlambda/logger": 1.0.0-rc.1
-    "@microlambda/remote-state": 1.0.0-rc.1
-    "@microlambda/runner-core": 1.0.0-rc.1
-    "@microlambda/utils": 1.0.0-rc.1
+    "@microlambda/aws": 1.0.0-rc.2
+    "@microlambda/config": 1.0.0-rc.2
+    "@microlambda/errors": 1.0.0-rc.2
+    "@microlambda/logger": 1.0.0-rc.2
+    "@microlambda/remote-state": 1.0.0-rc.2
+    "@microlambda/runner-core": 1.0.0-rc.2
+    "@microlambda/utils": 1.0.0-rc.2
     dotenv: ^16.0.3
-  checksum: caa75b5bdb60d850aa668dba330f8923af5071912523ce35c336127ae85277bf69112e4b48401f592dd6d6df9b44a1a6a5128e9a09139aabc1d5710fc174ea17
+  checksum: 499ee9395a0c4066c7f3264820649cce9018043044297fd26fc1d643330f50e4f77f6fc9d089ca11554e0201656af99f849cb6f6d40288433bc8ad416607e237
   languageName: node
   linkType: hard
 
-"@microlambda/errors@npm:1.0.0-rc.1":
-  version: 1.0.0-rc.1
-  resolution: "@microlambda/errors@npm:1.0.0-rc.1"
-  checksum: a6d69ad5549527b9a79507a3d9f36e89380198dd27594a03ccba9b51f9dcf8d240a5c960cddf55570e04998f2dc6feee3447a7bf97115990dbf1ab6703a412d1
+"@microlambda/errors@npm:1.0.0-rc.2":
+  version: 1.0.0-rc.2
+  resolution: "@microlambda/errors@npm:1.0.0-rc.2"
+  checksum: 756ea6bd1b23e699d694769bcedb20e03c46611dd28ec502467bc6f32afebf1aeb1182e5f7431562d1f9607561bf9828c419b1ae8a5ab4f9a7899196faa75f8e
   languageName: node
   linkType: hard
 
-"@microlambda/generators@npm:1.0.0-rc.1, @microlambda/generators@npm:^1.0.0-rc.1":
-  version: 1.0.0-rc.1
-  resolution: "@microlambda/generators@npm:1.0.0-rc.1"
+"@microlambda/generators@npm:1.0.0-rc.2, @microlambda/generators@npm:^1.0.0-rc.2":
+  version: 1.0.0-rc.2
+  resolution: "@microlambda/generators@npm:1.0.0-rc.2"
   dependencies:
     ejs: ^3.1.9
     inquirer: ^8.2.5
     joi: ^17.9.2
     js-yaml: ^4.1.0
     typescript: ^5.0.4
-  checksum: 15d2b03ae3e00e78d08e7a469b920de18b167cb4013e89275f0ec602c68b28554758a240d8988b040ac7ba257edada896c1a9016416cba1a00cfe0513914ef21
+  checksum: c7cc20d4b8a820cdcfdc8752c2f498471896a802cf085eb2a80c27599b5a3f1bf34fe853f9cdf0f97633621c33e107862d6e1feea57850808ec164aa751ad814
   languageName: node
   linkType: hard
 
-"@microlambda/handling@npm:^1.0.0-rc.1":
+"@microlambda/handling@npm:^1.0.0-rc.2":
   version: 1.0.0
   resolution: "@microlambda/handling@npm:1.0.0"
   dependencies:
@@ -2955,67 +2955,67 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@microlambda/layers@npm:1.0.0-rc.1":
-  version: 1.0.0-rc.1
-  resolution: "@microlambda/layers@npm:1.0.0-rc.1"
+"@microlambda/layers@npm:1.0.0-rc.2":
+  version: 1.0.0-rc.2
+  resolution: "@microlambda/layers@npm:1.0.0-rc.2"
   dependencies:
     "@aws-sdk/client-acm": ^3.363.0
-    "@microlambda/aws": 1.0.0-rc.1
-    "@microlambda/remote-state": 1.0.0-rc.1
-    "@microlambda/runner-core": 1.0.0-rc.1
-    "@microlambda/utils": 1.0.0-rc.1
-  checksum: 91a8e63a8d0c384774d6db95dac1de075520fa8c48f1277a90a04bbc9e19bb54466b029ec37d56ba59d1b04972529b9f6e5f4438e90ef1cd8dc8e0b3db4ed936
+    "@microlambda/aws": 1.0.0-rc.2
+    "@microlambda/remote-state": 1.0.0-rc.2
+    "@microlambda/runner-core": 1.0.0-rc.2
+    "@microlambda/utils": 1.0.0-rc.2
+  checksum: 045a8db3baee68f8fb9e5e759b8965f05d697ece42777f153ac3e57a19c9cef6506bcacf9add86327d0a61147634dae0744cfb86f58eb6b1616b9db98a1cbfd7
   languageName: node
   linkType: hard
 
-"@microlambda/logger@npm:1.0.0-rc.1":
-  version: 1.0.0-rc.1
-  resolution: "@microlambda/logger@npm:1.0.0-rc.1"
+"@microlambda/logger@npm:1.0.0-rc.2":
+  version: 1.0.0-rc.2
+  resolution: "@microlambda/logger@npm:1.0.0-rc.2"
   dependencies:
-    "@microlambda/types": 1.0.0-rc.1
+    "@microlambda/types": 1.0.0-rc.2
     chalk: ^4.1.2
-  checksum: d0820a000b7cf905075d1862e37642109c1977b922026c0ae60ab725e4bbcfb07fff71402869e471f819a012a0f96d4936975e19a8b92208162cd0c4601368a6
+  checksum: 226ba7bae9f28a168f92bec42e25a3d3644911aca3aa3776e979201669d7c521596dd3a82c40aee0019fd06653775281ba8860af68171a4e2be2de40b54cb5d6
   languageName: node
   linkType: hard
 
-"@microlambda/remote-state@npm:1.0.0-rc.1":
-  version: 1.0.0-rc.1
-  resolution: "@microlambda/remote-state@npm:1.0.0-rc.1"
+"@microlambda/remote-state@npm:1.0.0-rc.2":
+  version: 1.0.0-rc.2
+  resolution: "@microlambda/remote-state@npm:1.0.0-rc.2"
   dependencies:
     "@aws-sdk/client-dynamodb": ^3.370.0
     "@aws-sdk/lib-dynamodb": ^3.370.0
-    "@microlambda/aws": 1.0.0-rc.1
-    "@microlambda/config": 1.0.0-rc.1
-    "@microlambda/logger": 1.0.0-rc.1
-    "@microlambda/runner-core": 1.0.0-rc.1
+    "@microlambda/aws": 1.0.0-rc.2
+    "@microlambda/config": 1.0.0-rc.2
+    "@microlambda/logger": 1.0.0-rc.2
+    "@microlambda/runner-core": 1.0.0-rc.2
     dynamodels: ^2.0.1
-  checksum: cbd7ca9d7a0ad9b296fe12b2c358a06530877085fcded5857a9d9086608e579e0255ba43d87c325fc2774623f0bf45716affbdefb084baca7ada82bd6c9fe1ca
+  checksum: 987b0f43de3fc1c416eff93cff7b74808af96fb32f4a6d0614464aa05d8300c9f1cec9700b139423aaebbfa96185337e79841dd343051ad238f49e462b3d4c01
   languageName: node
   linkType: hard
 
-"@microlambda/runner-cli@npm:^1.0.0-rc.1":
-  version: 1.0.0-rc.1
-  resolution: "@microlambda/runner-cli@npm:1.0.0-rc.1"
+"@microlambda/runner-cli@npm:^1.0.0-rc.2":
+  version: 1.0.0-rc.2
+  resolution: "@microlambda/runner-cli@npm:1.0.0-rc.2"
   dependencies:
-    "@microlambda/runner-core": 1.0.0-rc.1
+    "@microlambda/runner-core": 1.0.0-rc.2
     chalk: ^4.1.2
     commander: ^11.0.0
   bin:
     microlambda-runner: dist/index.js
     mila-runner: dist/index.js
-  checksum: 5e2d97afbf206f6ef5a6e37a0475984947e457d0cc2da106aec098f3ef63881614180dd20b7d5bc168c90a428182bce29b58a63cf7c1b60dff5cef900cf73d73
+  checksum: 11862053bc174244d91237a2d23d2f40367c6cf17ff13054a8fb09b87f55fe4c7a8a46e8ccdd65de9137de49efff8131fa7504df5378f2408237b9e431cd15fd
   languageName: node
   linkType: hard
 
-"@microlambda/runner-core@npm:1.0.0-rc.1":
-  version: 1.0.0-rc.1
-  resolution: "@microlambda/runner-core@npm:1.0.0-rc.1"
+"@microlambda/runner-core@npm:1.0.0-rc.2":
+  version: 1.0.0-rc.2
+  resolution: "@microlambda/runner-core@npm:1.0.0-rc.2"
   dependencies:
-    "@microlambda/aws": 1.0.0-rc.1
-    "@microlambda/config": 1.0.0-rc.1
-    "@microlambda/errors": 1.0.0-rc.1
-    "@microlambda/logger": 1.0.0-rc.1
-    "@microlambda/utils": 1.0.0-rc.1
+    "@microlambda/aws": 1.0.0-rc.2
+    "@microlambda/config": 1.0.0-rc.2
+    "@microlambda/errors": 1.0.0-rc.2
+    "@microlambda/logger": 1.0.0-rc.2
+    "@microlambda/utils": 1.0.0-rc.2
     chokidar: ^3.5.3
     conventional-commits-parser: ^3.2.4
     debug: ^4.3.4
@@ -3028,55 +3028,55 @@ __metadata:
     semver: ^7.5.4
     simple-git: ^3.19.1
     tar-stream: ^2.2.0
-  checksum: 6ea17e32e84c64fe2f91630ecbd3d077c6e3eeaf33354aa596498d93828c52440bff5d87a0728b8a6c071ffe12c3b7f4bf441ebc42b49fa6485879d0cc2f392d
+  checksum: 6e9d87374dc51a4c1dcd5150ba7fa5a98f7e58b413f74f6ada2a575e93a2dd0eafe6c38381d97ff5f3583d18c0d6e005704706c645287f4e7ca4bf0c7711c55f
   languageName: node
   linkType: hard
 
-"@microlambda/server@npm:1.0.0-rc.1":
-  version: 1.0.0-rc.1
-  resolution: "@microlambda/server@npm:1.0.0-rc.1"
+"@microlambda/server@npm:1.0.0-rc.2":
+  version: 1.0.0-rc.2
+  resolution: "@microlambda/server@npm:1.0.0-rc.2"
   dependencies:
-    "@microlambda/aws": 1.0.0-rc.1
-    "@microlambda/client": 1.0.0-rc.1
-    "@microlambda/config": 1.0.0-rc.1
-    "@microlambda/core": 1.0.0-rc.1
-    "@microlambda/environments": 1.0.0-rc.1
-    "@microlambda/logger": 1.0.0-rc.1
-    "@microlambda/runner-core": 1.0.0-rc.1
+    "@microlambda/aws": 1.0.0-rc.2
+    "@microlambda/client": 1.0.0-rc.2
+    "@microlambda/config": 1.0.0-rc.2
+    "@microlambda/core": 1.0.0-rc.2
+    "@microlambda/environments": 1.0.0-rc.2
+    "@microlambda/logger": 1.0.0-rc.2
+    "@microlambda/runner-core": 1.0.0-rc.2
     body-parser: ^1.20.2
     cors: ^2.8.5
     express: ^4.18.2
     rxjs: ^7.8.1
     socket.io: ^4.7.1
-  checksum: d9cfa836654dbf5089d213a46d5d9caa8d2e8d0400ef7234b3f4588c7e72a1fbeea28f52332a062f838793a11f76fc74870e8128135bb722b92dd82d25ebde93
+  checksum: 4a0699b1ba88ea609b1fa441b6974fc01c23017e629f0c063b040f2c301f71a118af0d217851987eed76f802c29a5243cc67e33623e3aed41249c69dcc7d3b6d
   languageName: node
   linkType: hard
 
-"@microlambda/testing@npm:^1.0.0-rc.1":
-  version: 1.0.0-rc.1
-  resolution: "@microlambda/testing@npm:1.0.0-rc.1"
+"@microlambda/testing@npm:^1.0.0-rc.2":
+  version: 1.0.0-rc.2
+  resolution: "@microlambda/testing@npm:1.0.0-rc.2"
   dependencies:
     aws-lambda: ^1.0.7
-  checksum: 0b7295b63812ff45ff9932bc0fd2951b6f3752648f20afa5b6134058ac5ba692e305200f707f79df7158258823aa3aa29fe7c24a901f9919eef9dabf953cedbe
+  checksum: 473314cf688dd1bccc2b1d11eece95818eb06967f67c301fe56f0196398af76346e026f070bc33e18414f402cb4050c4493380681e08139aa033f7126a07ffcd
   languageName: node
   linkType: hard
 
-"@microlambda/types@npm:1.0.0-rc.1":
-  version: 1.0.0-rc.1
-  resolution: "@microlambda/types@npm:1.0.0-rc.1"
-  checksum: aa3d906872d749b3a5380d5cc61a0527fcea247ea74e20879c69775160deb12e938deb8f49ae7c76786314a0cf537954fdc3557e0b880f6cfbef4e02a2e42257
+"@microlambda/types@npm:1.0.0-rc.2":
+  version: 1.0.0-rc.2
+  resolution: "@microlambda/types@npm:1.0.0-rc.2"
+  checksum: cf5b69ac352c538fe1fc8b6d500523a6fa0ee4a34a9381119f40a1adefb5767b25697548126fef802fa08094536b7384570ef6557b345d8a8ff310a7ad54f7f1
   languageName: node
   linkType: hard
 
-"@microlambda/utils@npm:1.0.0-rc.1, @microlambda/utils@npm:^1.0.0-rc.1":
-  version: 1.0.0-rc.1
-  resolution: "@microlambda/utils@npm:1.0.0-rc.1"
+"@microlambda/utils@npm:1.0.0-rc.2, @microlambda/utils@npm:^1.0.0-rc.2":
+  version: 1.0.0-rc.2
+  resolution: "@microlambda/utils@npm:1.0.0-rc.2"
   dependencies:
-    "@microlambda/errors": 1.0.0-rc.1
-    "@microlambda/logger": 1.0.0-rc.1
+    "@microlambda/errors": 1.0.0-rc.2
+    "@microlambda/logger": 1.0.0-rc.2
     dotenv: ^16.3.1
     typescript: ^5.0.4
-  checksum: e10a02951dcc4bc2cef71a74ef730e6019111604064ca6854a94947f1e36bcd6213e21d927732ff8c66add7b0f2c3684266d9a4b92e980f6f595f94ab384d6d1
+  checksum: ede21aa9c966d0762fd57f3511c837c3e2d5a13266ba18184e0ac82660888ccf9ccb1a2bdcd20b1fbba1c34e31e3d5f2dd8d8ed68a90965c3f2014e5fc7d147d
   languageName: node
   linkType: hard
 
@@ -10814,12 +10814,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "my-app@workspace:."
   dependencies:
-    "@microlambda/cli": ^1.0.0-rc.1
-    "@microlambda/generators": ^1.0.0-rc.1
-    "@microlambda/handling": ^1.0.0-rc.1
-    "@microlambda/runner-cli": ^1.0.0-rc.1
-    "@microlambda/testing": ^1.0.0-rc.1
-    "@microlambda/utils": ^1.0.0-rc.1
+    "@microlambda/cli": ^1.0.0-rc.2
+    "@microlambda/generators": ^1.0.0-rc.2
+    "@microlambda/handling": ^1.0.0-rc.2
+    "@microlambda/runner-cli": ^1.0.0-rc.2
+    "@microlambda/testing": ^1.0.0-rc.2
+    "@microlambda/utils": ^1.0.0-rc.2
     "@types/aws-lambda": ^8.10.119
     "@types/jest": ^29.5.3
     "@types/node": ^20.4.2
@@ -10831,7 +10831,7 @@ __metadata:
     lint-staged: ^13.2.3
     prettier: ^2.8.8
     serverless: ^3.33.0
-    serverless-microlambda: ^1.0.0-rc.1
+    serverless-microlambda: ^1.0.0-rc.2
     serverless-offline: ^12.0.4
     serverless-prune-plugin: ^2.0.2
     ts-jest: ^29.1.1
@@ -12363,19 +12363,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"serverless-microlambda@npm:^1.0.0-rc.1":
-  version: 1.0.0-rc.1
-  resolution: "serverless-microlambda@npm:1.0.0-rc.1"
+"serverless-microlambda@npm:^1.0.0-rc.2":
+  version: 1.0.0-rc.2
+  resolution: "serverless-microlambda@npm:1.0.0-rc.2"
   dependencies:
-    "@microlambda/aws": 1.0.0-rc.1
-    "@microlambda/core": 1.0.0-rc.1
-    "@microlambda/environments": 1.0.0-rc.1
-    "@microlambda/layers": 1.0.0-rc.1
-    "@microlambda/runner-core": 1.0.0-rc.1
+    "@microlambda/aws": 1.0.0-rc.2
+    "@microlambda/core": 1.0.0-rc.2
+    "@microlambda/environments": 1.0.0-rc.2
+    "@microlambda/layers": 1.0.0-rc.2
+    "@microlambda/runner-core": 1.0.0-rc.2
     chokidar: ^3.5.2
     hasha: ^5.2.2
     joi: ^17.9.2
-  checksum: bfca14788e4ffefe8cf6700d5a4140b362a899f42f87ba3a3f6fd0d426dc04be2782dc6420f62d9bdcacc034d8c5a406d1483b74d890405d6204614c016a08b6
+  checksum: aa6bcb5e229dacc7c6b84adc7d137b210f0de88d1107d7375405f79a1cf41de699d64d57076ff274a089145d801c53b331ba87af28a77e1bf084d3b281aa4d8a
   languageName: node
   linkType: hard
 
