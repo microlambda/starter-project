@@ -20,6 +20,7 @@
     "infra/*"
   ],
   "devDependencies": {
+    "@microlambda/aws": "^1.0.0-rc.2",
     "@microlambda/cli": "^1.0.0-rc.2",
     "@microlambda/generators": "^1.0.0-rc.2",
     "@microlambda/handling": "^1.0.0-rc.2",
